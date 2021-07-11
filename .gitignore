@@ -13,3 +13,15 @@
 
 # Dependency directories (remove the comment below to include it)
 # vendor/
+
+# main configuration file
+.env
+
+# Wire generated files
+internal/wire/wire_gen.go
+
+# opapicodegen
+internal/http/**/port/genhttp/
+
+#swagger
+docs/swaggerui/*.yaml

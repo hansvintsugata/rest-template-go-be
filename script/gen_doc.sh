@@ -1,3 +1,3 @@
 #!/bin/bash
 
-cp ./api/http/http.yaml ./docs/swaggerui
+cp ./api/http/**.yaml ./docs/swaggerui

@@ -1,8 +1,7 @@
 #!/bin/bash
 for file in ./api/http/*.yaml; do
         f=$(basename $file .yaml)
-        mkdir -p ./http/$f/port/genhttp
-
+        mkdir -p ./internal/http/$f/port/genhttp
 
         oapi-codegen -generate types \
         -o ./internal/http/$f/port/genhttp/openapi_types.gen.go \
