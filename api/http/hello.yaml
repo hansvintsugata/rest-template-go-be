@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: YOUR PROJECT TITLE HERE
+  description: YOUR PROJECT DESCRIPTION HERE
+  version: 0.0.1
+paths:
+  /hello-world:
+    get:
+      summary: Hello World API
+      description: Hello World API
+      parameters:
+        - name: flag
+          in: query
+          schema:
+            type: boolean
+          required: true
+      responses:
+        200:
+          description: Default response Hello World API
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/getHelloWorldResponse'
+        default:
+          description: unexpected error
+          content:
+            'application/json':
+              schema:
+                $ref: '#/components/schemas/error'
+
+components:
+  schemas:
+    error:
+      allOf:
+        - type: object
+          properties:
+            errors:
+              type: array
+              items:
+                type: string
+        - $ref: '#/components/schemas/baseResponse'
+      example:
+        message: "bad.request"
+        code: 404
+        serverTime: 12121212
+        errors:
+          - "exception here on line 12"
+          - "duplicate key on db"
+    baseResponse:
+      required:
+        - message
+        - code
+        - serverTime
+      type: object
+      properties:
+        message:
+          type: string
+        code:
+          type: integer
+        serverTime:
+          type: integer
+          format: int64
+      example:
+        message: "default.success"
+        code: 200
+        serverTime: 12121212
+    getHelloWorldResponse:
+      allOf:
+        - $ref: '#/components/schemas/baseResponse'
+        - type: object
+          properties:
+            data:
+              type: object
+              properties:
+                greeting:
+                  type: string
+          example:
+            data:
+              greeting: "Hello World !!"
