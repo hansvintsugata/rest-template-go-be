@@ -17,10 +17,10 @@ type BaseResponse struct {
 }
 
 func sendResponse(w http.ResponseWriter, body BaseResponse, err error) {
+	w.Header().Set("content-type", "application/json")
 	responseWriterWrap := GetResponseWriterWrap(w)
-	responseWriterWrap.WriteHeader(body.Code)
+	responseWriterWrap.SetStatusCode(body.Code)
 	responseWriterWrap.WriteError(err)
-	responseWriterWrap.Header().Set("Content-Type", "application/json")
 
 	jsonData, _ := json.Marshal(body)
 	_, errWrite := responseWriterWrap.Write(jsonData)

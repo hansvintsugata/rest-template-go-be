@@ -20,7 +20,7 @@ func (w *ResponseWriterWrap) Write(data []byte) (int, error) {
 	return w.ResponseWriter.Write(data)
 }
 
-func (w *ResponseWriterWrap) WriteHeader(code int) {
+func (w *ResponseWriterWrap) SetStatusCode(code int) {
 	w.statusCode = code
 	w.ResponseWriter.WriteHeader(code)
 }

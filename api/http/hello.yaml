@@ -3,8 +3,6 @@ info:
   title: YOUR PROJECT TITLE HERE
   description: YOUR PROJECT DESCRIPTION HERE
   version: 0.0.1
-servers:
-  - url: /your-service
 paths:
   /hello-world:
     get:
