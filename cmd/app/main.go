@@ -4,7 +4,9 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/rest-template-go-be/internal/config"
 	"github.com/rest-template-go-be/internal/wire"
+	"github.com/rest-template-go-be/pkg/env"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -19,7 +21,9 @@ func main() {
 
 	registerHandler(rootRouter)
 
-	addr := fmt.Sprintf(":%d", 9000) //TODO
+	cfg := config.HTTPConfig{}
+	env.MustProcess(&cfg)
+	addr := fmt.Sprintf("%s:%d", cfg.Address, cfg.Port)
 	logrus.WithField("addr", addr).Infof("Starting HTTP server")
 
 	if err := http.ListenAndServe(addr, rootRouter); err != nil {

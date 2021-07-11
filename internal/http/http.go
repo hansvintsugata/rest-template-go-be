@@ -7,7 +7,7 @@ import (
 
 	"github.com/rest-template-go-be/internal/http/hello/port/genhttp"
 	"github.com/rest-template-go-be/internal/service"
-	httputil "github.com/rest-template-go-be/pkg/helper/http"
+	httputil "github.com/rest-template-go-be/pkg/http"
 )
 
 type HTTP struct {
