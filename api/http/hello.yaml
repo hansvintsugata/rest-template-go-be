@@ -61,6 +61,7 @@ components:
           type: integer
         serverTime:
           type: integer
+          format: int64
       example:
         message: "default.success"
         code: 200

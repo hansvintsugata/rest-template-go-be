@@ -33,9 +33,9 @@ func registerHandler(router *chi.Mux) {
 		wire.InitializeHTTP().CreateHandler(router)
 	})
 
-	router.Get("/application/health", func(writer http.ResponseWriter, request *http.Request) {
-		// TODO: healthcheck
-	})
+	//router.Get("/application/health", func(writer http.ResponseWriter, request *http.Request) {
+	//	// TODO: healthcheck
+	//})
 
 	sh := http.StripPrefix("/docs", http.FileServer(http.Dir("docs/swaggerui")))
 	router.Get("/docs/*", func(writer http.ResponseWriter, request *http.Request) {

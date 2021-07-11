@@ -1,4 +1,4 @@
 #!/bin/bash
-sh ./scripts/http.sh
-sh ./scripts/gen_doc.sh
-sh ./scripts/gen_wire.sh
+sh ./script/http.sh
+sh ./script/gen_doc.sh
+sh ./script/gen_wire.sh
