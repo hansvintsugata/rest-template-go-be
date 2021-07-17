@@ -17,6 +17,7 @@ func GetResponseWriterWrap(w http.ResponseWriter) *ResponseWriterWrap {
 }
 
 func (w *ResponseWriterWrap) Write(data []byte) (int, error) {
+	w.body = data
 	return w.ResponseWriter.Write(data)
 }
 
